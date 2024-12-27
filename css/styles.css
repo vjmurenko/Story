@@ -62,3 +62,7 @@ nav *{
 .backgroundLight {
     background-color: #f0f0f0; /* Light background */
 }
+
+p:has(b){
+    text-align: center;
+}
