@@ -10,12 +10,12 @@
 </head>
 <body>
 
-<nav class="ps-2 d-block bg-secondary sticky-top text-white d-flex @(ShowNavBar ? "" : "d-none")">
+<nav id="NavBar" class="ps-2 d-block bg-secondary sticky-top text-white d-flex">
 <div>
-        <span>Font: @FontSize</span>
-        <button @onclick="IncreaseSize" class="btn btn-dark shadow-none">+</button>
-        <button @onclick="DecreaseSize" class="btn btn-dark shadow-none">-</button>
-        <select class="form-select w-auto d-inline text-white bg-secondary ms-2" @bind="@Background">
+        <span id="fontSizeDisplay">Font: 12</span>
+        <button id="increaseSize" class="btn btn-dark shadow-none">+</button>
+        <button id="decreaseSize" class="btn btn-dark shadow-none">-</button>
+        <select id="backgroundSelector" class="form-select w-auto d-inline text-white bg-secondary ms-2" @bind="@Background">
                 <option value="">Light</option>
                 <option value="backgroundPaper">Paper</option>
                 <option value="backgroundDark">Dark</option>
@@ -30,7 +30,7 @@
                 </option>
         </select>
 </div>
-<button class="btn btn-dark ms-auto shadow-none" @onclick="() => ShowNavBar = false">
+<button id="HiddenNavBarButton" class="btn btn-dark ms-auto shadow-none">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrows-vertical" viewBox="0 0 16 16">
                 <path d="M8.354 14.854a.5.5 0 0 1-.708 0l-2-2a.5.5 0 0 1 .708-.708L7.5 13.293V2.707L6.354 3.854a.5.5 0 1 1-.708-.708l2-2a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1-.708.708L8.5 2.707v10.586l1.146-1.147a.5.5 0 0 1 .708.708z" />
         </svg>
@@ -39,12 +39,11 @@
 
 </nav>
 
-<button @onclick="() => ShowNavBar = true" class="d-block btn btn-secondary w-100 sticky-top @(ShowNavBar ? "d-none" : "") rounded-0"></button>
+<button id="ShowNavBarButton" class="d-block btn btn-secondary w-100 sticky-top rounded-0 d-none"></button>
 
-<div class="@Background" style="font-size: @FontSizeString">
+<div id="contentContainer" class="content-container backgroundLight" style="font-size: 16px">
 
-        @Body
-</div>
+     
 
 <div class="p-2 col-lg-8 col-md-10" style='word-wrap:break-word'>
 
@@ -1509,9 +1508,8 @@ even now, in its light essence, can only be guessed, felt and overheard.</span><
     </div>
 </div>
 
-
-
-
+</div>
 <script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/scripts.js"></script>
 </body>
 </html>
