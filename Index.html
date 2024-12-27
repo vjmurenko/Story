@@ -4,9 +4,1514 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    
 </head>
 <body>
-    <h1>Site</h1>
-    <h2>Hello</h2>
+
+<nav class="ps-2 d-block bg-secondary sticky-top text-white d-flex @(ShowNavBar ? "" : "d-none")">
+<div>
+        <span>Font: @FontSize</span>
+        <button @onclick="IncreaseSize" class="btn btn-dark shadow-none">+</button>
+        <button @onclick="DecreaseSize" class="btn btn-dark shadow-none">-</button>
+        <select class="form-select w-auto d-inline text-white bg-secondary ms-2" @bind="@Background">
+                <option value="">Light</option>
+                <option value="backgroundPaper">Paper</option>
+                <option value="backgroundDark">Dark</option>
+        </select>
+
+        <select class="form-select w-auto d-inline text-white bg-secondary ms-2" @bind="@Language" @bind:after="LanguageSelect">
+                <option value="EN">
+                        EN
+                </option>
+                <option value="RU">
+                        Ru
+                </option>
+        </select>
+</div>
+<button class="btn btn-dark ms-auto shadow-none" @onclick="() => ShowNavBar = false">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrows-vertical" viewBox="0 0 16 16">
+                <path d="M8.354 14.854a.5.5 0 0 1-.708 0l-2-2a.5.5 0 0 1 .708-.708L7.5 13.293V2.707L6.354 3.854a.5.5 0 1 1-.708-.708l2-2a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1-.708.708L8.5 2.707v10.586l1.146-1.147a.5.5 0 0 1 .708.708z" />
+        </svg>
+</button>
+
+
+</nav>
+
+<button @onclick="() => ShowNavBar = true" class="d-block btn btn-secondary w-100 sticky-top @(ShowNavBar ? "d-none" : "") rounded-0"></button>
+
+<div class="@Background" style="font-size: @FontSizeString">
+
+        @Body
+</div>
+
+<div class="p-2 col-lg-8 col-md-10" style='word-wrap:break-word'>
+
+    <div class=WordSection1>
+
+        <p class="MsoNormal text-center fw-bold" style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>Alexander Green. "Quiet Weekdays"</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class="MsoNormal text-center" style='margin-bottom:0cm;line-height:normal'><b><span
+                lang=EN-US>I</span></b></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>Evgenia Alekseevna Mazalevskaya came to visit relatives in the
+village for the summer. They were her uncle and her aunt by her husband, his
+wife. The girl's mother died when her daughter was six years old, and her
+father, the director of the gymnasium, lived alone in St. Petersburg. He was a
+man of acrimony and cruelty, intolerant of other people's opinions, ambitious
+and harsh, a strange combination of bureaucrat and liberal. In relation to his
+daughter, he was a real Dombey, although the Slavic blood prevented him from
+holding this brand quite. There is no doubt that he loved the girl as well as
+she loved him, but on his side the love was irritable and despotic, demanding
+obedience to his views; on her side it was simple, but withdrawn and proud, for
+the old man never spoke directly, but only in intricate, rebus-like hints, and
+could drive anyone into a frenzy with sudden turns from stingy gentleness to
+gratuitous or at least unexplained bitterness. It was a hard, hurtful
+relationship for a young girl. The reason for them lay, of course, in her
+father's character, but this reason, as well as his inner life, was a secret to
+Eugenia. She was constantly drawn to the relationship simple and cordial, but
+many impressions of life have developed so that, having lost the clear
+directness of the soul, she became withdrawn and fearful, inwardly silent, as
+dazed from the unexpected insult of a man, and passed life with a sad distrust
+of her, trying to be apart.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>Of course, this pale city girl was glad to get away for a while from
+the difficult relations with her father, from service (she served in the office
+of the medical journal) and, smiling at the summer pleasures, went to her
+uncle, whom she had seen once in her life. The uncle, a landowner, who suffered
+constant failures in the cultivation of corn, peaches, Argentine cucumbers, and
+other things ruinous to the northern pocket, absent-mindedly looked at his
+niece over his spectacles with the naive eyes of a complacent nobleman, shoved
+agricultural brochures into her hand, told her about strawberries, and in the
+morning, with a newspaper in his hands, rubbing his forehead assiduously,
+knocked at Eugenia's door. “Look here,” he said, as he entered, “the most
+marvelous report: it turns out that in the Egyptian sphinx these devils, what
+are their Belgians ... have opened a temple. What a marvel.” Seeing the man, he
+suffered, wrinkled his nose and said “you”, to which the man respectfully
+objected: “So you, father, Pal Palych, you'll have to take a bite out of the
+vygonu, without that where is it?”. The manager, aka the headman of the village
+church, stole as he wished. Pavel Pavlovich played the piano beautifully; while
+playing, his face became businesslike and energetic. He did not like cities; he
+used to serve in elections, but gave it up, saying, “What can you do with them
+- they will turn as they wish.” His wife, Inna Sergeyevna, a languid, sickly,
+lemon-colored face, a plump lady, could spend hours reminiscing about
+Petersburg. The spouses sometimes quarrelled, in whispers, without passion,
+with an annoying boredom in their hearts. Inna Sergeyevna, sighing, said to her
+husband: “Pasha, I have given you everything, everything, - you are a narrow,
+ungrateful man,” to which, wiping his sweating spectacles, Pavel Pavlovich
+replied: “He who remembers the old, to him an eye out.” Guests, afraid of
+boredom, went to them rarely and reluctantly.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>Eugenia Alexeevna spent her time in walking, reading, thinking,
+sleeping and eating. In two weeks she became noticeably better, pinker, a
+healthy gleam appeared in her eyes. The lazy quiet of summer strengthened her.
+At the same time the following happened in a provincial town of a neighboring
+province.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class="MsoNormal text-center" style='margin-bottom:0cm;line-height:normal'><b><span
+                lang=EN-US>II</span></b></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>Stepan Sotkin, a young man of the bourgeoisie, has returned home
+after a long absence. He had served for three years, wherever and however he
+had to, in various places in Russia: as a cashier on a steamship, as a weigher
+at a station, as a conductor, and as an agent for a linen firm. He had not
+corresponded with his parents for nearly a year, so that when he returned it
+was a great and serious news to him that his elder brother had died, and Stepan
+Sotkin had to draw lots. There were not many conscripts this year, the
+preferential lot required exceptional happiness, and they could not reject
+Sotkin, because he was a healthy, tall and fast man.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>In the evening there was a family tea-party in the garden under an
+elderberry tree. Old Sotkin, a widower, a watchman of the state chamber, said:</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>- “They'll take you away, Stepan. Grisha will die, and you'll get a
+forehead. I'll stay with Petyka.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>- It is not yet known, - Stepan answered. - In fact, I have no
+desire for military service.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>After four years of wandering he thought of the soldier's burden
+with hatred and disgust. Since the age of sixteen Sotkin used to live quite
+independently, moving from city to city, spending as he wished, his strength,
+labor and money. He remembered the lively, colorful Moscow, the blue Volga, the
+hum of the fair in Nizhny, the disorderly music of the Odessa port; in front of
+him, shrouded in locomotive smoke, ran the forest. And Sotkin shook his head.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>- Yes, I don't feel like it,” he repeated.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>- You can't jump higher than your ears,” said the old man. - Shall
+we run away? To England. Two years and eight months - you'll get over it.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>Sotkin sighed and went out for a wander and went into a pub. There,
+clutching his head with his hands, he sat behind the bottles until closing time
+and, having thoroughly discussed the situation, decided that he would have to
+serve. Life abroad beckoned him, but also frightened him with the impossibility
+of returning to Russia. “To serve is to serve,” he said, tossing some
+breadcrumbs into his mouth, “so it will be.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>He was assigned to Penza. The usual bewilderment and confusion of
+new recruits before the new conditions of life (most of them were “gray”
+village boys), as well as their naive vanity, satisfied by the red new
+epaulettes, the crack of the drum and music, were alien to Sotkin. As an
+experienced and developed man, he quickly mastered all the simple wisdom of
+stepping and twisting socks, dressing, eating superiors with his eyes, rifle
+mechanism and - the so-called “diction”. Sotkin's smooth, calm character helped
+him to avoid sharp clashes with non-commissioned officers and “old soldiers”,
+who used to muzzle newcomers. He did not try to get promoted, but was executed.
+All this did not prevent Sotkin's closest superiors - subplatoon, platoon,
+fieldfebel and captenarmus (who usually plays the role of Iago among
+non-commissioned officers; the warm, economic position of the captenarmus - the
+object of envy - makes him a gossip, a schemer and a diplomat) - from treating
+the young soldier coldly and disapprovingly.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>There is a breed of men to whom one might, modifying, refer
+Goldsmith's words, “I am quite sure that no expression of submission will
+restore me to freedom even for one hour.” Sotkin might have said, “No amount of
+effort to be a model soldier will get me the favor of the non-commissioned
+officers.”</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>Sotkin belonged to the number of people who have the unfortunate
+ability, when in dependence, to cause, without any care on their part, a
+deafening and gratuitous enmity on the part of those on whom they depend. There
+were no provinces of service and discipline behind him, but his inner attitude
+to service, quite mechanical and indifferent, - his inability to ingratiate, to
+get out, to flatter, to bend and flutter - was expressed, probably quite
+unconsciously, in trifles: an occasional, close or quick glance, a smile, a
+tone of voice, silence at the sharpness of the non-commissioned officer, calm
+answers, quick movements. He cleaned the field-febel's boots without wrinkling
+his nose, but only when ordered; others, rising early, worked with brushes with
+an incomprehensible voluptuousness of obsequiousness. He, besides all this,
+drank tea and white bread every day, and did not owe the marquis. The soldiers
+respected him, and the petty authorities, with coldly glittering eyes, looked
+at Sotkin with the misty, indifferent gaze of a cat contemplating the sparrows
+in the air.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>Such relations, of course, sooner or later, were bound to escalate
+and come to light. The camp gathering came. Behind the Sura spread out white,
+among green alleys, the tents of the O battalion. The soldiers, returning from
+a training firing range, were bragging to each other about the accuracy of
+their sights, dreaming of prize hours. Sotkin, shooting poorly, rarely
+penetrated a target with more than two bullets out of five. The first shout of
+the field officer: “Sotkin, look!” - and the second, “Raven, and still in the
+first company!” made him aim more carefully and longer; however, more than
+three bullets waved did not show him a red badge. A month later they switched
+to movable targets.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>On a horizontal rotating pole, three hundred paces away, slowly showing
+from the trench and disappearing, belted figures popped up. The platoon fired
+lying down. The suffocating, fiery heat flowed over the field colorless
+shimmers of air, the fly and the sighting frame glistened in the sun, beaming,
+as the flame of a candle beams to a man squinting at it. Aiming was difficult.
+In the distance, at eye level, dived, the size of a playing card, two-arch belt
+targets.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>Sotkin, holding his breath, took aim and let the target disappear in
+order to shoot the next time it appeared.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>The target reappeared. Sotkin fired, and the bullet, kicking up dust
+far away, sang and drifted away. He wasted the other four cartridges, he didn't
+hit.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>- Under the satchel, - said the company officer. Sotkin blushed
+thickly and frowned. It was the first time he had to serve a sentence. Chagrin
+and unreasonable shame seized him, as if he really, something dirty himself in
+the eyes of others, but soon realized that the shame is only because he will
+have to stand plastered in full marching gear for two hours, everyone will look
+and at least mentally smile.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>The company, having finished firing, with youthful songs about
+“Major-General Alkhaz” and “spinning blue ball”, returned to the camp. Sotkin
+was searched for by the platoon leader.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>- Sotkin,” he said indifferently, biting his lip, ”get dressed and
+go to the ruler. The soldier, having listened to the order, returned to the
+tent, hung up everything required by the regulations - manners, cartridges,
+rolled up overcoat, bag, took his rifle and went out, ready to fall through the
+ground. Red as a peony, Sotkin looked into the cold face of the
+non-commissioner with almost pleading eyes. The non-commissioned officer,
+having examined the equipment, took Sotkin to the middle of the line and put
+him facing the camp....</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>- That's right, - he said and looked at his watch, and then left.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>Sotkin took “on his shoulder.” The soldiers, passing by him, threw
+oblique glances - it was so strange to see Sotkin under the satchel. He,
+pouring sweat, was suffering patiently and steadfastly; the sun was burning
+intolerably, scorching the back of his head, and the heat was giving him a
+nervous chill in his body, aching from the weight and unnatural position of his
+arm. The gray-haired field-febel, smiling into his mustache, approached Sotkin,
+looked openly and affectionately into his eyes, and said just as
+affectionately:</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>- Closer socks. Elbow.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>Two hours passed. Sotkin was released, he came to the tent and for a
+long time, pretending to be looking for something, rummaged through the trunk,
+avoiding talking to his comrades. His embarrassment passed only by evening.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>A day later there was shooting again, but this time - accidentally
+or not - Sotkin hit four out of five. The soldier breathed a sigh of relief.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>- You'll get into the first category, - monotonously told him,
+passing in the chain, the platoon commander, - you'll go to the prize, you'll
+get a watch.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>He was laughing, of course. Sotkin understood this, but only waved
+his hand, thinking: “The dog barks, the wind carries it. Their eyes met for one
+sly, mute moment, and it became clear to Sotkin that the non-commissioner would
+definitely and cruelly hate him for whatever he did, bad or good - all the
+same, because he was Sotkin.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>Several days passed. The platoon was cleaning their rifles. The rag,
+screwed on the end of the chompol, had long ago come out of the muzzle clean as
+washed, and Sotkin began to reassemble the disassembled rifle. A sergeant
+watching the work came up to Sotkin.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>- Let me see. - He brought the muzzle to his eyes, turning the other
+end of the barrel to the sun, looked for a long time, saw that cleaned
+perfectly, and so said:</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>- Three. Wipe it again.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>- There's nothing there, - Sotkin objected, showing wiping rags, -
+here, look.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>- If I say... - began the sergeant, trying to find an expressive,
+long phrase, but stammered. - Clean it, clean it.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>Sotkin wiggled the ramrod in the muzzle for about ten minutes, but
+he already felt the voice of resistance rising in his soul. This day was
+exceptionally unpleasant for him because in the morning he had lost money,
+eight rubles, and in the evening a circumstance occurred that was unexpected
+and abrupt.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>Thirty soldiers, having supped, gathered in a circle and, under the
+direction of the field-febel who had organized the entertainment, sang one
+after another of soldiers' songs. Sotkin stood there listening. He had neither
+ear nor voice, so, not taking part in the chorus, he was limited to the role of
+a man of the audience. The hot-headed, hoarse field-felon, without a hat, in a
+pink chintz shirt, stretching his arms over the crowd, fiercely threatened the
+tenors, bulged the basses, and extinguished the so-called “woman's voices,” the
+owners of which in all cases were stout men. It got dark, the lights of the
+city glittered.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>- Sotkin, sing,” said the field-felon, when the song was over. - You
+don't know how, do you?</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>- That's right, I can't. - Sotkin smiled, thinking that the
+lieutenant was joking.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>- You've never sung?</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>- Never.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>- Wait. - Feldfebel stepped out of the circle and, approaching the
+soldier closely, scrutinized him from head to toe. - Learn. “Do-re-mi-fa...”
+Well, repeat it.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>- I don't know how, - said Sotkin, and suddenly, noticing that the
+small eyes of the fieldfebel were fixed on him, became wary.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>- Well, sing,” he repeated languidly, half-closing his eyes.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>Sotkin was silent.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>- You do not want to, - said the fieldfebel, - I know, you're
+suprotective. Execute the order.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>Sotkin turned pale; at the same moment the field-felder also turned
+pale, and both, looking into each other's eyes, sighed deeply. “So this number
+will not pass for you,” thought the soldier.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>- Do as you're told.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>- No way, I can not, Mr. Fieldfebel, - said Sotkin separately and,
+after thinking, added: - Forgive me generously.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>A joyful, cheerful smile lit up the wrinkles of the brave servant.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>- Ah, Sotkin, Sotkin,” he said, sighing, shook his head sadly, and,
+folding his hands on his prominent belly, looked around cheerfully. The
+soldiers, having stopped singing, looked at them. - 'Come with me,' he said
+dryly, no longer smiling, squinted his eyes and strode towards the town.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>Excited, but not realizing what was wrong, Sotkin walked beside him.
+Behind his back the chorus rang out. Not far from the camp stretched an old
+trench, densely overgrown with briars and nettles; in the bushes of these
+Fieldfebel stopped.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>- They used to teach us like this,” he said, hitting Sotkin's face
+with all his might; he did it not with his fist, but with the palm of his hand,
+so as not to leave marks. Sotkin's head whipped from side to side. Stunned, he
+instinctively covered himself with his hand. Fieldfebel, turning the soldier
+abruptly by the shoulders, poked him in the neck with his fist, laughed and
+calmly walked away. Sotkin stood motionless, almost unable to believe it had
+happened. Both his cheeks burned with pain, his ears were ringing, and it hurt
+to move his head. He picked up his fallen cap, put it on, and looked toward the
+camp. The soldiers were singing “Oy, za gai, gai...”, and in the lighted doors
+of the maritant's shop could be seen the non-commissioned officers drinking
+tea. The tents were vaguely white.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>- And you can't beat me,” said Sotkin aloud, turning to this
+peaceful picture of military life. - I have not been beaten by the ears for a
+long time,” he went on, ”I will not allow it, as you want me to.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>He sat for five minutes on the ground, swallowing tears and remembering
+the disgusting touch of the fist, then snuck into the tent, covered himself
+with his overcoat without undressing and began to think.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>There were two years of service ahead of him. During this time there
+could be many more occasions for the superiors to get angry, and Sotkin, a man
+who did not like to bear insults obediently, could, at last, get angry himself,
+which usually led to even worse things. He knew from the stories of some of the
+soldiers who had been hounded into hard labor, and it had taken place in this
+sequence: light and dark punishment cell, punishment cell on trial,
+disciplinary battalion, shackles. But it was hard to expect a change of wind.
+Memories told Sotkin that the superiors, interrupting with the shout, “Hey you,
+professor of sour soup, vaksa compiler, to prayer!” - some trifling story to
+the soldiers about the Eiffel Tower, - uses his power not only for business
+purposes, but also because it is power, a thing pleasant in itself, which is
+even more pleasant to use aimlessly in relation to a man of mental strength.
+There was great scope for everything in it.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>“I could ruin my life here, for that's what it's worth,” thought
+Sotkin. Finally, having made a firm decision not to serve any longer, he fell
+asleep. A day later, Sotkin was not at roll call in the morning. The
+field-felon wrote a report, the company officer wrote to the regimental
+officer, the regimental officer wrote to the district; a little more ink was
+spent on correcting the food lists, and the town and district police noted,
+scratching his back, in the lists of other fugitives and wandering people, the
+burgher Stepan Sotkin.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class="MsoNormal text-center" style='margin-bottom:0cm;line-height:normal'><b><span
+                lang=EN-US>III</span></b></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>- I like ruffs very much,” said Pavel Pavlovich, motioning a plate
+to his wife, ”but there isn't enough pepper in the ear.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>There were four diners--an uncle, an aunt, Evgenia Alexeevna, and an
+old acquaintance of Inna Sergeyevna's whom she had known as a gymnasium
+pupil--Apollon Cheprakov, the zemstvo chief. He was a man with a bulging mouth
+and the same fast-running eyes; he shaved his moustache, wore a dark beard with
+a string like the strap of a helmet, had curly hair, and dressed, living in the
+village, in sportsman's colored shirts, encircled on the stomach with a wide,
+with chains and pockets, belt. Cheprakov's special, amazing property was his
+ability to talk smashingly about anything, clinging to a single word. He stayed
+at the estate for four days, looked after Evgenia Alexeevna and collected a
+collection of butterflies.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>- Yes, indeed, - said Cheprakov - ruff from a biological point of
+view, ruff, so to speak, free - one thing, a variety, and cooked, such as, for
+example, now, - he picked a spoon fish - an object that requires onions and
+peppers. Shchedrin wrote a fairy tale about ruff, and well, quite witty.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>- Pis-kar,” Pavel Pavlovich stretched out painfully, ”pis-kar, not
+ruff.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>- Ah, - Cheprakov was surprised, - and I was ... I used to catch
+peepers ... when it ... last summer... Evgenia Alekseevna, - he suddenly
+turned, - you remind me of a fish swimming in the water.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>- Apollo,” sighed Inna Sergeyevna, sucking a crust, ”look, you have
+embarrassed Zhenya, ah, you!</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>- Gallant as a prince,” said Pavel Pavlovich good-naturedly.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>The girl laughed. The big, frivolous Cheprakov made her laugh more
+than angered her with his unexpected verbal shots. He met her strangely, too:
+shaking hands, he suddenly said: “There are meetings and meetings. This is very
+pleasant for me, I'm amazed,” and, shaking his head, strutted off. He spoke
+loudly, as if he were reading from a book, not only to a deaf person, but to a
+deaf-mute.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>- 'Apollon Semyonitch,' said Evgenia, 'I heard that you were
+dangerously ill.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>- Yes. Bursa mucosa. - Cheprakov looked tenderly at the girl and
+repeated with emphasis: - Mukoza. I bowed my head under the blow of fate, but
+recovered. This topic was enough for him for a long time. He named in detail
+the doctors who treated him, medicines, prescriptions, remembered the sister of
+mercy Pudikova and, having talked, got up from the table, continuing to
+describe the hospital regime. Usually after dinner, if the weather was fine, Eugenia
+went into the woods, which began behind the pond; the uncle, covering his face
+with a handkerchief, lay down, saying from “Carmen”: “So that we are not
+disturbed by flies” - and fell asleep in the study; Inna Sergeevna had a long
+conversation in the kitchen with the cook about unknown things, and then went
+to her room, where she fiddled at the mirror or dismantled antique lace, always
+going to make something out of them. Cheprakov, taking a butterfly net, pins,
+and a vial of ether, stood on the porch, waiting for the girl, and when she
+came out, said:</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>- I'll go with you, it's necessary.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>- Please. - Eugenia looked, smiling, into his solemn face. -
+Necessary?</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>- Yes. You are a weak woman, - condescendingly said Cheprakov, - so
+I decided to guard you.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>- Unfortunately, you are unarmed, and I, as you said, - weak.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>- That's all right. - Cheprakov bent his arm. - Here, feel the
+biceps muscle. I can bench press two poods. I have a folding gym at home. Why
+don't you want to feel it?</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>- I believe it. Come on, let's go.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>They bypassed the house, the pond and, crossing the edge of the
+forest, headed along the path to the local landmark - the “Horse's Head” stone,
+which looked more like a sazhennaya rutabaga. Cheprakov, trying to catch a
+dragonfly walking through the air, tore the net.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>- It's astonishing,” he said, ”from trifling causes such
+consequences.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>- Well, I'll sew you up, - promised Eugenia.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>- You, with your hands? - Cheprakov asked sweetly. - This is
+happiness.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>- Come on, - said the girl, - go still.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>- No, why not?</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>- The same reason.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>“Really, I am beginning to speak his language,” thought the girl.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>Cheprakov's talkativeness paralyzed her; she noticed with
+displeasure that she sometimes unconsciously imitated him in the turn of
+phrase. His manner of speaking resembled an endless, annoying throwing of
+bread-balls in his face. “Is he always and with everybody like that? - Eugenia
+pondered. - Or draws? I do not understand.”</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>The smell of pine needles, ants and mullein was sharp. The red
+trunks of pines, slightly creaking, shook their tops. Cheprakov saw a tit.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>- Here is a bird,” he said, ”it is, of course, beaten, that a bird,
+but nevertheless a touching phenomenon. - He glanced at his companion's thin
+blouse, tightly fitting her round shoulders, and sharply felt a whiff of female
+youth. His thoughts suddenly became confused, lost their annoying
+chrestomaticity, and jumped uncertainly. He fell silent, rolling his eyes,
+noting the fuzz on the back of his head, the thin hand at the brush, the mole
+at the corner of his lips. “A pleasant girl, by God,” he thought, “and perhaps
+still forbidden, yes.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>- And I'm going to town to-morrow,” he said, ”a mass of business,
+various engagements, relations; four days well spent here have actually
+benefited me physically and spiritually, and I am as fresh as young Dionysus
+again.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>- And do you love your work? - Eugenia asked, biting her lips.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>- Of course I do! No, however, - corrected Cheprakov. - I am nothing
+but an anarchist at heart. I like everything grandiose, passionate. Men are
+pigs.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>- Why?</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>- They're grossly material.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>- But you get a salary, too.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>- It's an honorary payment, a fee,” explained Cheprakov gravely. He
+touched Eugenia's elbow with his fingers, saying: “You've got a twig stuck to
+you,” though I came up with this twig after much thought. - Now,” he said
+gravely, unconsciously getting into the right tone, ”what to say about me, I am
+a small man, doing what fate has given me to do. You, how do you live? What do
+you think, what do you dream of? What have you planned for your life? That is
+what is more interesting to know, Evgenia Alexeevna.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>- It is not immediately said, - said the girl.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>- Well, and yet? Well, how?</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>Cheprakov himself did not know why he needed it; probably he had
+changed his tone by unconsciously observing that shy people often say to
+strangers what they would not always say to people closer to them, and why he
+needed it, he did not know definitively.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>They approached the stone. “What shall I say?” - Eugenia thought.
+She did not know what Cheprakov imagined her to be, but she felt that she was
+not what she really was. In this, as well as in the peculiar mood that comes
+from the fact that sometimes a chance question gathers in a person's soul his
+scattered cherished things into one whole, - there was a certain amount of
+desire to tell about herself. Besides, for some reason she felt sorry for
+Cheprakov, and it seemed to her that at last she could talk to him without
+birds and Dionysus.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>- You see, Apollon Semyonitch,” she began hesitatingly, sitting down
+on the grass; Cheprakov, with his chin up, stood by the stone, ”I have two demands
+in my life. I want, firstly, to earn the love and respect of people, and
+secondly, to be in some great, very necessary and important business, and to
+merge so closely with it that both I and the people and the business would be
+one. Do you understand? However, I don't know how to express it. But I can't
+find it, or I'm not good at it, I don't know. But it is difficult, isn't it, to
+find something in which passions and personal interests and ambition are not
+involved? It frightens me, I confess. Personal life should not be entangled
+with anything, let it flow along a different course. Then I would live, as they
+say, a full life.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>- N-yes, - Cheprakov stretched out, sitting down next to me, - not
+many, not many are given. I deeply respect you. And what do you say about the
+main thing - the main enzyme of life? The sweet, the sweet, the sweet. in a
+word, love?</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>- 'Well, yes,' Eugenia dropped quickly, 'of course...' - She was
+embarrassed and flared up, then, as if justifying herself and already angry
+with herself for it, added: - 'After all, everyone is equal here, and men.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>- Of course they are! - Cheprakov said cheerfully. - Very much so.
+The girl laughed.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>“And I, by God, I'll try,” thought Cheprakov, “young ... nineteen
+years old... does not know life... - Then he continued to ponder, by habit, as
+he said, in chopped phrases: - How interesting is the awakening of love in a
+woman's heart. Down with the slogans of General Kuropatkin. My dear, you are
+not indifferent to me. I'm coming to you.”</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>- Evgenia Alexeyevna,” Cheprakov blurted out, ”this is where the
+bursa mukoza was, eh? Look at it.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>He quickly rolled up the pants on his left leg to the knee, exposing
+a hairy calf and a white scar. Eugenia, suddenly cooled down, looked at
+Cheprakov in surprise.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>- What is the matter with you? - She asked, standing up.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>- This is a mucosa. - Cheprakov tightened his pants. - What white
+skin ... and you, too... hand.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>Eugenia looked at her hand and saw that this hand found itself in
+Cheprakov's hand, he kissed it and pressed it to the left side of his chest.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>- Well, leave it, - calmly, but changed in the face, said Eugenia. -
+Hands away.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>- No - why not? - Cheprakov said naively. - It is sudden, deep. The
+girl picked up the umbrella, turned and leisurely walked away. Cheprakov stood
+still for some time, stiffly looking after her, then he yawned falsely, took
+another path to the manor house, took a fishing rod and sat on the river until
+dinner.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>At the table he avoided looking at Eugenia, and she at him; this the
+aunt noted to herself. The next day in the morning Cheprakov left for the city,
+having time to whisper goodbye to the silent girl:</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>- I have experienced subtle, charming moments.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class="MsoNormal text-center" style='margin-bottom:0cm;line-height:normal'><b><span
+                lang=EN-US>IV</span></b></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>Eugenia held the letter in her hands, looking at the school,
+half-masculine handwriting with bewilderment. At last, having lost hope of
+guessing from whom the letter was from, for she had no acquaintances in the
+district town, and the postmark on the envelope read: “Saburov,” the girl began
+to read.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>- What, what is it? - she cried out in astonishment and resentment.
+Holding the letter with a trembling hand, she bent to it, bewildered at the
+surprise,-so much was there in it of deliberate malice, venom, and mockery.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>“Gracious sovereign, Mistress Evgenia Alexeevna.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>I do not know whether it is proper for a young girl of noble birth
+(the noble ones are good) to carry on with a married man. I suppose they teach
+you that. Tell me how you're not ashamed. If you behave like that, then your
+parents were good. Apollosha told me everything. That's not very nice of you,
+young lady. Though we're not married, we've been living together for four
+years, thank God. And I won't let you take my man away from me. If you're in love
+with him, I advise you to forget it, and take your tail elsewhere. You won't
+catch anyone on your intelligence, you'd better keep it to yourself.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>Ready for service Maria Tikhonova.”</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>Having read to the end, Evgenia Alexeevna dropped her hands and
+looked around helplessly. A sickly, nervous laugh choked her. She did not even
+at once realize from whom the letter was from. Separate phrases, and the most
+offensive ones, one after another appeared before her in the air as on a
+screen, overwhelming her with their imposing peremptoriness; it was like a
+dream in which, wishing to escape from a terrible phenomenon, one cannot move
+from one's seat. She even wondered whether it was not a hoax of the same
+Cheprakoff, a crude, mad hoax, but a hoax nevertheless; but it was difficult to
+think of anything like such a letter on purpose. The old fear of life seized
+the girl, she guessed that man was fatefully defenceless in body and soul; and
+even Siegfried, from head to foot covered with horny skin, had a spot on his
+back, the size of a tree-leaf, that missed death. The whole sad and funny scene
+of the third day, with the “bursa mukoza” and the kissing of hands, came to
+life before the girl; a burning color of shame flooded her from head to toe at
+the thought that - this was the most painful of all - her accidental frankness
+was known to Maria Tikhonova in a suspicious transmission, acquiring a meaning
+ridiculously shameful and causing, probably, giggles.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>Eugenia was sitting upstairs alone, and this helped her to recover
+from the offensive surprise. Had such a story happened five years later, she
+must have treated it, outwardly, somewhat differently: either she would not
+have answered the letter at all, or she would have written a calm, intelligible
+reply. But at her present age she had not yet learned to weigh circumstances,
+and continued to regard people closely and in great detail, to the end.
+Tikhonova's address was in the letter; the author must have been guided by the
+well-known curiosity of the summons. Evgenia Alexeevna looked at her watch: six
+o'clock. Wishing to end personally and as soon as possible what she still
+considered a misunderstanding, the girl, pinning on her hat and taking the
+letter, went downstairs.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>She had four versts to cover on foot; there was no excuse for
+telling her to harness a horse. She stepped out of the back porch into the
+village, turned around to see if any of the household were following her, and
+walked quickly toward the town, visible already from the nearest hill by the
+red stain of the government liquor warehouse, white bell towers, and gardens.
+Her excitement did not leave her, on the contrary: the nearer she came to the
+dark fences of Saburov, the more intolerable the slowly shrinking distance
+seemed. The girl was firmly convinced that she would force herself to listen
+and that she would be given all the explanations she needed. At last she
+entered the town. Eugenia had been here before. Stepping on the unsteady boards
+of the sidewalks, thickly covered with nettles with their sharp, deafening
+smell, the girl remembered one evening when, returning from a concert of a
+visiting pianist at the hotel, where Pavel Pavlych was waiting for her to leave
+together, she walked leisurely through the streets. The town was falling
+asleep. The red and purple curtains were still glowing in some places; the
+pigeons were gurgling sleepily in the high pigeon-house; the Sloboda burghers
+were playing their last game of ruffles in the square; an old beggar, standing
+in the darkness on the corner, was waving his hands, muttering inebriatedly;
+from the open windows of the military chief's apartment a badly learned
+“Virgin's Prayer” was being sung; the men, sitting on the bedside tables at the
+inn, were gabbling about the rented meadows. The ravines smelled of the dampness
+of the icy keys. The clear gleam of stars flowed over the black roofs. The
+steamer “Ivan Luppov” stood at the wharf, throwing the murky light of its
+lanterns into the flour piles; its mast lights against the black, like spilled
+ink, shoals of the opposite shore seemed an illumination. She remembered this
+peaceful silence, marveling at the deceptiveness of the silence, at its hidden
+stings; she was even embarrassed to walk with her indignation among the small,
+tidy, green houses, the shrivelled, flimsy shacks, the rustic dust, the
+harmless yellow paint, and the slumbering mezzanines. Finding the house and
+street, Eugenia, with a heavy nervous oppression that filled her with sudden
+weariness, rang at the yellow front door. She was opened by a dejected pregnant
+woman.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>- Is Mrs. Tikhonova at home? - Eugenia asked, and suddenly she
+wanted to go away, but she overcame her fear. The woman, with her mouth open,
+looked at her; it was ridiculous to the grave.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>- 'And I'm just now ... they are at home,” said the woman, hiding in
+the hay.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>At the window, at the side, a face flattened with its nose against
+the glass, with an expression of eager curiosity.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>- They ask for you,” said the dull woman, returning after a long,
+languid minute. She opened the door wide and stared at Eugenia, as if guarding
+her with her gaze. The girl, taking a deep breath, entered a low room with
+canaries, ivy, and Viennese chairs. At the farther door, crossing on her high
+chest puffy, like buns, arms, stood a black-browed, pink-faced lady in a gray
+hood.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>- Whom do I have the honor? - filtered the lady, examining Evgenia
+Alexeevna. The girl spoke with difficulty.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>- 'I am Mazalevskaya,' she said, clenching her fingers to restrain
+her excitement, 'I want to ask you why you, without giving yourself the trouble
+to.... Here is your letter. - She held out the sheet to the proudly smiling
+Tikhonova. - Please explain everything to me, do you hear?</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>- And what has labor got to do with it? - The lady spoke loudly,
+moving her eyebrows suggestively. - And I have nothing to explain to you. And I
+have nothing to say to you. And that Apollo is a pig in front of me, I know
+that too. And if, believe me, my dear, a man says, “Ah, ah, ah, ah! She has an
+inclination for me,” and if you lure a man with different matters, then, pardon
+me, no; ah, leave it. I am not a girl to be led by the nose. And most of all
+I'm surprised you even came; it's so modern, please.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>The girl's legs trembled, she looked at Tikhonova with the look of a
+stricken man and was confused.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>- Well, listen,” she said, panting, ”it's pointless, don't you
+understand? I...</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>- Where is there to understand, - said the lady, - we - county.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>Eugenia did not finish, turned, went out into the street and burst
+into tears. Trying to restrain herself, she hastily pressed her handkerchief to
+her mouth and eyes; she walked and stopped automatically; rare passers-by,
+turning round, looked at her for a long time, and then transferred their eyes
+to fences, trees, and roofs, as if it were there that the necessary explanation
+was hidden; one said, shouting: “What's screwed up, hearty?” Having overcome
+the spasms, the girl saw Cheprakov; he was crossing the street on his way to
+Tikhonova's apartment. Not at all surprised that she had met this man by
+chance, rather even with a sense of relief, Evgenia Alekseevna stopped him at
+the corner. Cheprakov, having ceased waving his cane, took off his cap, turned
+away, and blinked so anxiously that it was impossible to doubt that he knew
+about the letter.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>Cheprakov, giving himself away, remained silent, not saying hello,
+not even pretending to be surprised to see Mazalevskaya in town.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>- Do you know about the letter? - The girl asked sternly. Cheprakov,
+arching his back, spread his hands.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>- I... I... I... - he got confused. - I wanted to shame her.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>Evgenia Alexeevna looked intently into his hidden eyes, waved her
+hand, and went out of town with the slow gait of a tired man.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class="MsoNormal text-center" style='margin-bottom:0cm;line-height:normal'><b><span
+                lang=EN-US>V</span></b></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>Before going out to tea, Eugenia washed her face thoroughly with
+cold water and went to the mirror. The traces of her recent disorder had
+disappeared. Brushing her hair, wrapping herself in fluffy, below-the-knees
+hair, the girl for the hundred and first time experienced this, indelible at
+her age, but all the quieter, all the closer to calm sadness. She was no longer
+indignant, but perplexed. There had been similar incidents in her shadowy life
+before, but she had not formed a habit of them; she experienced them each time
+with all her nerves; something like a fear of people had developed in her
+gradually and imperceptibly. Even now she caught the sudden awakening of this
+feeling.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>- What is there to be afraid of? - Eugenia Alekseevna said aloud,
+trying to understand herself. Memories figuratively showed her that people's
+undeserved malice, gloating, and unconscious cruelty, from which no one is
+protected, are terribly undeserved. She recalled several examples of this in
+relation to herself and others.... Eugenia Alexeevna saw herself especially
+clearly on the street of St. Petersburg and in the Crimea.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>On the street, approaching the girl, a man, imposing and stately
+posture, stopped, hit her very hard with his fist in the chest and calmly
+passed without even turning around. And in the Crimea, at the boarding-house
+table, during dinner, a well-fed dapper merchant, still a young man,
+resplendent with rings and diamonds, seeing very well that his words were
+unpleasant and outrageous, spoke calmly of his thefts during the Japanese war,
+addressing his mistress and his guide-friend. Once in a while he addressed the
+others as well.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>- Do you ask me to stop? Come on! You've been donating to the
+wounded, and that money is in my pocket. Forty thousand.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>Yevgenia Alexeyevna went downstairs and drank strong tea. She was
+carrying on the usual, almost meaningless conversation with her relatives in a
+casual way.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>- 'Zheniechka,' said Inna Sergeyevna at the end, as if by accident,
+'the day before yesterday Apollo ... it seemed to me. you didn't quarrel?</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>- Not at all. - She looked calmly at her aunt and smiled. It was
+already dusk, when, wanting to be alone, Eugenia went around the pond full of
+clouds. She walked along the edge of the forest, the twilight fields opened to
+the left, under the sleepy blue sky that had lost its luster, the birds chirped
+muffled in the woods, the lowered veil of semi-darkness hid its low daylight. A
+corncrake twitched at the hedge. Eugenia stopped, she liked the desolate
+silence of the neighborhood; she stood and thought.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>- Go to bed,” said a voice behind her; ”though you are a woodpecker
+and a working bird, yet take care of your strength.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>Mazalevskaya shuddered and turned to the invisible speaker. He could
+not be seen, he was sitting or lying in the dark bushes.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>A woodpecker chiseled the tree without ceasing.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>- Uncooperative,” continued the voice, ”at least you have learned my
+language. A-m-m-me-me-ma-am, a-am, me-e. Crestfallen.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>The voice was silent, and a man came out of the bushes with a bag
+over his shoulders, in an old cartouche, laptoes, and with a club, like those
+used by pilgrims; he wanted to jump the hedge, but, noticing Eugenia, threw off
+his cartouche and held out his hand.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>- A-m-m-m-me-me-ma-am-me-e,” he mumbled, pointing to his mouth.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>- Mute? - Eugenia asked.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>The man nodded, looking expressively at the young lady's hand and
+purse.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>- Though you are a working bird, - Eugenia said unexpectedly to
+herself, holding out the change, - but take care of your strength.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>- Overheard, - suddenly said quite clearly imaginary mute and
+grinned confusedly.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>- What do you need it for?</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>- I have a need,” said the man evasively.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>- Don't be afraid of me,” said Eugenia, thinking. Her curiosity was
+greatly hurt.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>The man looked around.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>- So what, you are not interested, - he reluctantly spoke. - Just a
+runaway soldier. Not a big bird. You see, I have a passport, I bought it
+somewhere, but, pardon me, I can't lie. But at night, as you know, or on the
+meadow, a man will give them a drink - they like to talk, they're interested in
+passers-by. Well, you see, you can't lie, especially at a lodging. It's
+dangerous. I ran away from one railroad guard; the old man started hunting for
+me, you see, and what's in it for him? Of course, after thinking about it, I
+pretended to be mute, and so I'm going. To Odessa. I have acquaintances there;
+they'll arrange it for me. In a month, believe me, I haven't spoken a dozen
+words with people, sometimes I talk to myself out of boredom; but I see you
+won't do any harm,” I said.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>- I won't,” confirmed Eugenia absent-mindedly.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>- That's so. Thank you for the trifle.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>Sotkin jumped over the hedge, waved his cartouche and walked,
+shaking his bag, towards the village.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>- Well, thank God,” said Eugenia, coming up to the porch of the
+manor house, ”now I think I know something too.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>She thought that it was necessary to live like this soldier, that a
+man who hid himself from others would penetrate more and more deeply into the
+life of others like himself, would understand more in detail the complex
+confusion of the human soul. This was fermenting in her still vaguely, but
+imperiously. She began to realize that in the great pain and hardship of life a
+rare person was more interested in other people's “cherished” than in his own,
+and so it would be until the “cherished” became common to all, while now it was
+still a reproach and suffering for many. And the people to whom it is close
+even now, in its light essence, can only be guessed, felt and overheard.</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>Notes:</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>&nbsp;</span></p>
+
+        <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                lang=EN-US>Quiet Weekdays. For the first time - the magazine “Sovremennik”,
+1913, E 10.</span></p>
+
+    </div>
+</div>
+
+
+
+
+<script src="js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
