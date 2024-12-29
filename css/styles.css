@@ -1,12 +1,5 @@
-{
-    font-family: "Cambria Math"
-;
-    panose-1: 2 4 5 3 5 4 6 3 2 4
-;
-}
-@font-face {
-    font-family: Calibri;
-    panose-1: 2 15 5 2 2 2 4 3 2 4;
+:root {
+    --font-family: "Arial", sans-serif; /* Default font */
 }
 
 /* Style Definitions */
@@ -16,16 +9,7 @@ p.MsoNormal, li.MsoNormal, div.MsoNormal {
     margin-bottom: 8.0pt;
     margin-left: 0cm;
     line-height: 107%;
-    font-family: "Calibri", sans-serif;
-}
-
-.MsoChpDefault {
-    font-family: "Calibri", sans-serif;
-}
-
-.MsoPapDefault {
-    margin-bottom: 8.0pt;
-    line-height: 107%;
+    font-family: var(--font-family);
 }
 
 @page WordSection1 {
@@ -56,7 +40,6 @@ nav *{
 
 .content-container {
     font-size: 16px; /* Default font size */
-    transition: font-size 0.1s ease-in-out; /* Smooth transition */
 }
 
 .backgroundLight {
@@ -65,4 +48,15 @@ nav *{
 
 p:has(b){
     text-align: center;
+}
+
+
+@media screen and (max-width: 347px){
+    #languageSelect{
+        width: 58px !important;
+    }
+    
+    #backgroundSelector{
+        width: 60px !important;
+    }
 }

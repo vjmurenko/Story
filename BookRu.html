@@ -10,36 +10,44 @@
 </head>
 <body>
 
-<nav id="NavBar" class="ps-2 d-block bg-secondary sticky-top text-white d-flex">
-<div>
-        <span id="fontSizeDisplay">Font: 12</span>
-        <button id="increaseSize" class="btn btn-dark shadow-none">+</button>
-        <button id="decreaseSize" class="btn btn-dark shadow-none">-</button>
-        <select id="backgroundSelector" class="form-select w-auto d-inline text-white bg-secondary ms-2" @bind="@Background">
-                <option value="">Light</option>
-                <option value="backgroundPaper">Paper</option>
-                <option value="backgroundDark">Dark</option>
-        </select>
-
-        <select class="form-select w-auto d-inline text-white bg-secondary ms-2" id="languageSelect">
-                <option value="EN">
-                        EN
-                </option>
-                <option value="RU">
-                        RU
-                </option>
-        </select>
-</div>
-<button id="HiddenNavBarButton" class="btn btn-dark ms-auto shadow-none">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrows-vertical" viewBox="0 0 16 16">
-                <path d="M8.354 14.854a.5.5 0 0 1-.708 0l-2-2a.5.5 0 0 1 .708-.708L7.5 13.293V2.707L6.354 3.854a.5.5 0 1 1-.708-.708l2-2a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1-.708.708L8.5 2.707v10.586l1.146-1.147a.5.5 0 0 1 .708.708z" />
-        </svg>
-</button>
-
-
-</nav>
-
-<button id="ShowNavBarButton" class="d-block btn btn-secondary w-100 sticky-top rounded-0 d-none"></button>
+   <nav id="NavBar" class="bg-secondary sticky-top text-white d-flex">
+      <div>
+              <select class="form-select form-select-sm bg-secondary d-inline w-25 text-white me-1" id="fontSelector">
+                      <option value="Calibri">Calibri</option>
+                      <option value="Arial">Arial</option>
+                      <option value="Times New Roman">Times New Roman</option>
+                      <option value="Courier New">Courier New</option>
+                      <option value="Georgia">Georgia</option>
+                      <option value="Consolas">Consolas</option>
+                      <option value="Verdana">Verdana</option>
+              </select>
+              <span id="fontSizeDisplay" class="me-1 small">12</span>
+              <button id="increaseSize" class="btn btn-dark shadow-none btn-sm">+</button>
+              <button id="decreaseSize" class="btn btn-dark shadow-none btn-sm">-</button>
+      
+              <select id="backgroundSelector" class="form-select form-select-sm w-auto d-inline text-white bg-secondary">
+                      <option value="">Light</option>
+                      <option value="backgroundPaper">Paper</option>
+                      <option value="backgroundDark">Dark</option>
+              </select>
+      
+              <select id="languageSelect" class="form-select form-select-sm w-auto d-inline text-white bg-secondary">
+                      <option value="EN">
+                              EN
+                      </option>
+                      <option value="RU">
+                              RU
+                      </option>
+              </select>
+      </div>
+      <button id="HiddenNavBarButton" class="btn btn-dark ms-auto shadow-none btn-sm">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrows-vertical" viewBox="0 0 16 16">
+                      <path d="M8.354 14.854a.5.5 0 0 1-.708 0l-2-2a.5.5 0 0 1 .708-.708L7.5 13.293V2.707L6.354 3.854a.5.5 0 1 1-.708-.708l2-2a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1-.708.708L8.5 2.707v10.586l1.146-1.147a.5.5 0 0 1 .708.708z" />
+              </svg>
+      </button>
+      </nav>
+      
+      <button id="ShowNavBarButton" class="d-block btn btn-secondary w-100 sticky-top rounded-0 d-none btn-sm"></button>
 
 <div id="contentContainer" class="content-container backgroundLight" style="font-size: 16px">
 

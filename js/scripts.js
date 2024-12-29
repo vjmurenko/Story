@@ -28,7 +28,7 @@ const backgroundSelector = document.getElementById('backgroundSelector');
 let fontSize = 16;
 
 function updateFontSizeDisplay() {
-    fontSizeDisplay.textContent = `Font: ${fontSize}`;
+    fontSizeDisplay.textContent = `${fontSize}`;
 }
 
 // Initialize the display
@@ -80,6 +80,11 @@ function changeLanguage() {
 window.onload = setSelectedLanguage;
 
 document.getElementById('languageSelect').addEventListener('change', changeLanguage);
+
+document.getElementById('fontSelector').addEventListener('change', function() {
+    const selectedFont = this.value;
+    document.documentElement.style.setProperty('--font-family', selectedFont);
+});
 
 
 
