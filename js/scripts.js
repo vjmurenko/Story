@@ -51,7 +51,7 @@ document.getElementById('decreaseSize').addEventListener('click', function() {
 
 backgroundSelector.addEventListener('change', function() {
     // Remove all background classes
-    contentContainer.classList.remove('backgroundLight', 'backgroundPaper', 'backgroundDark');
+    contentContainer.classList.remove('backgroundLight', 'backgroundPaper', 'backgroundDark', 'backgroundOldPaper');
     // Add the selected background class
     contentContainer.classList.add(this.value);
 });
@@ -87,4 +87,35 @@ document.getElementById('fontSelector').addEventListener('change', function() {
 });
 
 
+let lastScrollTop = 0; // Keep track of the last scroll position
+const button = document.getElementById('ShowNavBarButton');
 
+window.addEventListener('scroll', function() {
+    const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (currentScroll > lastScrollTop) {
+        // Scrolling down
+        button.classList.add("hidden") // Hide the button
+    } else {
+        // Scrolling up
+        button.classList.remove("hidden")
+    }
+    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // For Mobile or negative scrolling
+});
+
+function loadBackground(imageUrl) {
+    // Hide body until background is loaded
+    document.body.style.visibility = 'hidden';
+
+    const img = new Image();
+    img.onload = () => {
+        // Apply background and show body when image is loaded
+        document.body.style.visibility = 'visible';
+    };
+
+    img.src = imageUrl;
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    loadBackground('css/paper.jpg');
+});
