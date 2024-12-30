@@ -2,6 +2,35 @@
     --font-family: "system-ui", sans-serif;  /* Default font */    
 }
 
+@font-face {
+    font-family: 'Arial';
+    src: url('arialmt.ttf') format('truetype');
+  }
+
+  @font-face {
+    font-family: 'Georgia';
+    src: url('georgia.ttf') format('truetype');
+  }
+
+  @font-face {
+    font-family: 'Times New Roman';
+    src: url('timesnewromanpsmt.ttf') format('truetype');
+  }
+
+  @font-face {
+    font-family: 'Calibri';
+    src: url('calibri.ttf') format('truetype');
+  }
+  @font-face {
+    font-family: 'Consolas';
+    src: url('consolas.ttf') format('truetype');
+  }
+
+  @font-face {
+    font-family: 'Verdana';
+    src: url('Verdana.ttf') format('truetype');
+  }
+
 /* Style Definitions */
 p.MsoNormal, li.MsoNormal, div.MsoNormal {
     margin-top: 0cm;
@@ -73,3 +102,10 @@ p:has(b){
     transform: translateY(-100%); /* Move the button up */
     opacity: 0; /* Fade out */
 }
+
+.form-select, .form-select:focus, .form-select:active{
+    outline: none !important;
+    box-shadow: none !important;
+    border-color: var(--bs-border-color);
+}
+
